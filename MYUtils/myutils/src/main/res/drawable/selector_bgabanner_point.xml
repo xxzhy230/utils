@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true" android:drawable="@mipmap/icon_banner">
+        <!--<shape android:shape="oval">-->
+            <!--<size android:width="6dp" android:height="6dp" />-->
+            <!--<solid android:color="#eb6a19" />-->
+        <!--</shape>-->
+    </item>
+    <item android:drawable="@mipmap/icon_banner_point">
+        <!--<shape android:shape="oval">-->
+            <!--<size android:width="6dp" android:height="6dp" />-->
+            <!--<solid android:color="@color/black" />-->
+        <!--</shape>-->
+
+    </item>
+</selector>
