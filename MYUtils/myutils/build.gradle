@@ -49,5 +49,6 @@ dependencies {
     //sqlite数据库工具
     api files('libs/ormlite-android-encryption.jar')
     api files('libs/sqlcipher.jar')
+
     api 'com.classic.common:multiple-status-view:1.6'
 }
