@@ -33,4 +33,11 @@
         </attr>
 
     </declare-styleable>
+    <declare-styleable name="MultipleStatusView">
+        <attr format="reference" name="loadingView"/>
+        <attr format="reference" name="errorView"/>
+        <attr format="reference" name="emptyView"/>
+        <attr format="reference" name="noNetworkView"/>
+        <attr format="reference" name="contentView"/>
+    </declare-styleable>
 </resources>

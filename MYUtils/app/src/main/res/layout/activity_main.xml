@@ -5,26 +5,37 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:orientation="vertical">
+    <com.classic.common.MultipleStatusView
 
-    <include layout="@layout/include_statusbar"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="button"
-        android:text="测试"
-        android:visibility="gone" />
-
-    <com.yqjr.utils.flyBanner.FlyBanner
-        android:id="@+id/fb_banner"
+        android:id="@+id/multiple_status_view"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        app:points_meizu="false" />
+        android:layout_height="match_parent"
+        app:loadingView="@layout/loading_view"
+        app:emptyView="@layout/empty_view"
+        app:errorView="@layout/error_view"
+        app:noNetworkView="@layout/no_network_view"
+        >
+        <include layout="@layout/include_statusbar"/>
 
-    <ListView
-        android:id="@+id/ll_timer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="button"
+            android:text="测试"
+            android:visibility="gone" />
+
+        <com.yqjr.utils.flyBanner.FlyBanner
+            android:id="@+id/fb_banner"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:points_meizu="false" />
+
+        <ListView
+            android:id="@+id/ll_timer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </com.classic.common.MultipleStatusView>
+
 
 </LinearLayout>

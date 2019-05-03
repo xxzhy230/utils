@@ -51,12 +51,11 @@ dependencies {
     //sqlite数据库工具
     api files('libs/ormlite-android-encryption.jar')
     api files('libs/sqlcipher.jar')
-    api 'com.classic.common:multiple-status-view:1.6'
-    api 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+//    api 'com.classic.common:multiple-status-view:1.6'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    //权限
-    api 'com.github.tbruyelle:rxpermissions:0.10.2'
-    api 'com.classic.common:multiple-status-view:1.6'
+    api files('libs/rxpermissions.jar')
+    api files('libs/systembartint-1.0.3.jar')
+    api files('libs/multiple_status_view.jar')
 }
 repositories {
     mavenCentral()
