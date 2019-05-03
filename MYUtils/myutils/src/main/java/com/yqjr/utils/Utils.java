@@ -14,12 +14,15 @@ public class Utils {
     public static Context mContext;
     private static Utils utils;
     public OrmLiteSqliteOpenHelper helper;
+    public static int stateHeight;
 
     public static Utils initUtils(Context context) {
         mContext = context;
         if (utils == null) {
             utils = new Utils();
         }
+        int resourceId = mContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        stateHeight = mContext.getResources().getDimensionPixelSize(resourceId);
         return utils;
     }
 

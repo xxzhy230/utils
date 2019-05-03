@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.hqpay'
+group = 'com.github.hqpay'
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -50,6 +52,12 @@ dependencies {
     api files('libs/ormlite-android-encryption.jar')
     api files('libs/sqlcipher.jar')
     api 'com.classic.common:multiple-status-view:1.6'
-
-
+    api 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //权限
+    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+    api 'com.classic.common:multiple-status-view:1.6'
+}
+repositories {
+    mavenCentral()
 }

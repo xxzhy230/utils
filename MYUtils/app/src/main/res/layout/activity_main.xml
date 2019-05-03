@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_statusbar"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -13,15 +15,16 @@
         android:text="测试"
         android:visibility="gone" />
 
-    <!--<com.yqjr.utils.flyBanner.FlyBanner-->
-        <!--android:id="@+id/fb_banner"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="180dp"-->
-        <!--app:points_meizu="false" />-->
+    <com.yqjr.utils.flyBanner.FlyBanner
+        android:id="@+id/fb_banner"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:points_meizu="false" />
+
     <ListView
         android:id="@+id/ll_timer"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
 
 </LinearLayout>

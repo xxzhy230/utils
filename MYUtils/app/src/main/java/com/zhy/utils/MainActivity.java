@@ -13,35 +13,22 @@ import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
-import com.mcxtzhang.commonadapter.lvgv.CommonAdapter;
-import com.mcxtzhang.commonadapter.viewgroup.VGUtil;
-import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
-import com.mcxtzhang.commonadapter.viewgroup.adapter.single.SingleAdapter;
-import com.yqjr.utils.Utils;
 import com.yqjr.utils.base.BaseActivity;
 import com.yqjr.utils.base.BaseIViewString;
+import com.yqjr.utils.flyBanner.FlyBanner;
+import com.yqjr.utils.utils.StatusBarUtil;
 import com.yqjr.utils.utils.StringUtils;
 import com.yqjr.utils.wheel.WheelViewUtils;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
@@ -54,21 +41,24 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
 
     ListView lvTimer;
     private View view;
+    private FlyBanner fb_banner;
 
     private void initFindView() {
-
-        try {
-            HouseInfoDao houseInfos = new HouseInfoDao((DataBaseHelper)Utils.initUtils(this).helper);
-            HouseInfo houseInfo = new HouseInfo();
-            houseInfo.setDid("12345");
-            houseInfo.setHouseName("nha");
-            houseInfo.setPdid("12345");
-            houseInfo.setSeclet(false);
-            houseInfo.setUserId("1");
-            houseInfos.insertRawData(this,houseInfo);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        fb_banner = findViewById(R.id.fb_banner);
+        fbBanner();
+//
+//        try {
+//            HouseInfoDao houseInfos = new HouseInfoDao((DataBaseHelper)Utils.initUtils(this).helper);
+//            HouseInfo houseInfo = new HouseInfo();
+//            houseInfo.setDid("12345");
+//            houseInfo.setHouseName("nha");
+//            houseInfo.setPdid("12345");
+//            houseInfo.setSeclet(false);
+//            houseInfo.setUserId("1");
+//            houseInfos.insertRawData(this,houseInfo);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
         showGPSContacts();
         IpresenterCompl iPresenter = new IpresenterCompl(this);
         Map map = new HashMap();
@@ -109,8 +99,9 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
 
     @Override
     public View getView() {
+//        StatusBarUtil.setStatusBarMode(this,true,R.color.white);
+        StatusBarUtil.fullScreen(this);
         view = View.inflate(this, R.layout.activity_main, null);
-        ButterKnife.bind(this);
         return view;
     }
 
@@ -160,7 +151,7 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
         mList.add("http://pic33.photophoto.cn/20141022/0019032438899352_b.jpg");
         mList.add("http://img.bimg.126.net/photo/ZZ5EGyuUCp9hBPk6_s4Ehg==/5727171351132208489.jpg");
         mList.add("http://img5.duitang.com/uploads/item/201411/07/20141107164412_v284V.jpeg");
-//        fbBanner.setImagesUrl(mList);
+        fb_banner.setImagesUrl(mList);
     }
 
     /**
