@@ -80,14 +80,14 @@ public class OkHttp extends OkHttpUtils {
         return new GetHeaderBuilder();
     }
 
-    public static PostStringBuilder postString()
-    {
-        return new PostStringBuilder();
-    }
-    public static PostStrBuilder postStr()
-    {
-        return new PostStrBuilder();
-    }
+//    public static PostStringBuilder postString()
+//    {
+//        return new PostStringBuilder();
+//    }
+//    public static PostStrBuilder postStr()
+//    {
+//        return new PostStrBuilder();
+//    }
 
     public static PostFileBuilder postFile()
     {
@@ -102,25 +102,25 @@ public class OkHttp extends OkHttpUtils {
     {
         return new PostJsonBuilder();
     }
-    public static OtherRequestBuilder put()
-    {
-        return new OtherRequestBuilder(OkHttpUtils.METHOD.PUT);
-    }
+//    public static OtherRequestBuilder put()
+//    {
+//        return new OtherRequestBuilder(OkHttpUtils.METHOD.PUT);
+//    }
+//
+//    public static HeadBuilder head()
+//    {
+//        return new HeadBuilder();
+//    }
 
-    public static HeadBuilder head()
-    {
-        return new HeadBuilder();
-    }
-
-    public static OtherRequestBuilder delete()
-    {
-        return new OtherRequestBuilder(OkHttpUtils.METHOD.DELETE);
-    }
-
-    public static OtherRequestBuilder patch()
-    {
-        return new OtherRequestBuilder(OkHttpUtils.METHOD.PATCH);
-    }
+//    public static OtherRequestBuilder delete()
+//    {
+//        return new OtherRequestBuilder(OkHttpUtils.METHOD.DELETE);
+//    }
+//
+//    public static OtherRequestBuilder patch()
+//    {
+//        return new OtherRequestBuilder(OkHttpUtils.METHOD.PATCH);
+//    }
 
     public void execute(final RequestCall requestCall, Callback callback)
     {

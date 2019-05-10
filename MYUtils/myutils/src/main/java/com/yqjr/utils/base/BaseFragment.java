@@ -25,11 +25,13 @@ public abstract class BaseFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView(savedInstanceState);
+        onClickEvent();
     }
 
     //获取布局文件
     protected abstract View getResourceView();
 
+    public abstract void onClickEvent();
     //初始化view
     protected abstract void initView(Bundle savedInstanceState);
 

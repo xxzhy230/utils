@@ -25,15 +25,10 @@ public abstract class BaseActivity extends FragmentActivity {
             vIncludeBar.setLayoutParams(layoutParams);
         }
         initView();
+        onClickEvent();
     }
-//    private volatile OrmLiteSqliteOpenHelper mHelper;
-//
-//    public OrmLiteSqliteOpenHelper getHelper(Class<OrmLiteSqliteOpenHelper> aClass) {
-//        if (mHelper == null) {
-//            mHelper = OpenHelperManager.getHelper(this, aClass);
-//        }
-//        return mHelper;
-//    }
+
+    public abstract void onClickEvent();
 
     @Override
     protected void onDestroy() {
