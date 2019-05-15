@@ -97,7 +97,7 @@ public class OkHttp extends OkHttpUtils {
 
     public static PostFormBuilder post()
     {
-        return new PostFormBuilder();
+        return new PostStrBuilder();
     }
     public static PostJsonBuilder postJson()
     {

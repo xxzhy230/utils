@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
         String zkr2019 = StringUtils.getSign(map, "zkr2019");
         map.put("sign", zkr2019);
         String urls = "https://test.17ebank.com:9137/api/login/authenticateforsign";
-//        iPresenter.postJson(this, urls, map, 0);
+        iPresenter.postString( urls, map, 0);
 //        List<Long> mList = new ArrayList<>();
 //        for (int i = 0; i < 30; i++) {
 //            mList.add(1000000l + i * 100000 );

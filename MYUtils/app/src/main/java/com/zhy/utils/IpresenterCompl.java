@@ -79,20 +79,20 @@ public class IpresenterCompl extends BaseIpresenterCompl {
         });
     }
 
-    public void postString(String url, Map map) {
+    public void postString(String url, Map map, final int position) {
         OkHttp.post().url(url)
                 .params(map).build().execute(new StringJsonCallBack() {
             @Override
             public void onResponse(String response, int id) {
                 super.onResponse(response, id);
 
-                baseIViewString.result(true, response, 0);
+                baseIViewString.result(true, response, position);
             }
 
             @Override
             public void onError(Call call, Exception e, int id) {
                 super.onError(call, e, id);
-                baseIViewString.result(false, null, 0);
+                baseIViewString.result(false, null, position);
             }
         });
     }
