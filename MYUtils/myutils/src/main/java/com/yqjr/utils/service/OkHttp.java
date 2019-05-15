@@ -78,7 +78,7 @@ public class OkHttp extends OkHttpUtils {
 
     public static GetBuilder get()
     {
-        return new GetHeaderBuilder();
+        return new GetStrBuilder();
     }
 
 //    public static PostStringBuilder postString()
