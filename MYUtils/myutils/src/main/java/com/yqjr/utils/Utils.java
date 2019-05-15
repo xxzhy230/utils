@@ -67,8 +67,8 @@ public class Utils {
      * @param readTimeout     超时时间
      * @param classes    401 跳转的界面
      */
-    public Utils initHttp(boolean istag, String tagName, long connectTimeout, long readTimeout, Class<Activity> classes){
-        OkHttpInit.init(mContext).initOkhttpUtils(istag, tagName, connectTimeout, readTimeout, classes);
+    public Utils initHttp(boolean istag, String tagName, long connectTimeout, long readTimeout, Class<Activity> classes,String token){
+        OkHttpInit.init(mContext).initOkhttpUtils(istag, tagName, connectTimeout, readTimeout, classes,token);
         return utils;
     }
 

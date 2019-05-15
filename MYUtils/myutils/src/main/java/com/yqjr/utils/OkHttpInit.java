@@ -9,6 +9,7 @@ import com.xxzhy.okhttputils.cookie.CookieJarImpl;
 import com.xxzhy.okhttputils.cookie.store.PersistentCookieStore;
 import com.xxzhy.okhttputils.https.HttpsUtils;
 import com.xxzhy.okhttputils.log.LoggerInterceptor;
+import com.yqjr.utils.service.OkHttp;
 
 import java.util.concurrent.TimeUnit;
 
@@ -44,7 +45,11 @@ public class OkHttpInit {
      * @param readTimeout    超时时间 毫秒值
      * @param activity       401跳转的activity
      */
-    public void initOkhttpUtils( boolean isTag, String tagName, long connectTimeout, long readTimeout, Class<? extends Activity> activity) {
+    public void initOkhttpUtils( boolean isTag, String tagName, long connectTimeout, long readTimeout, Class<? extends Activity> activity,String token) {
+        if (token == null) {
+            token = "";
+        }
+        OkHttp.TOKEN = token;
         HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);
         CookieJarImpl cookieJar = new CookieJarImpl(new PersistentCookieStore(mContext));
         OkHttpClient okHttpClient;

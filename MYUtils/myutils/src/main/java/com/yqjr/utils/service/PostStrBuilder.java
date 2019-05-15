@@ -72,7 +72,7 @@ public class PostStrBuilder extends PostFormBuilder {
         }
         headers.put("v_version", Utils.getVersionName());
         headers.put("v_device", "Android");
-        headers.put("Authorization", SPUtils.getString("token"));
+        headers.put(OkHttp.TOKEN, SPUtils.getToken());
         return this;
     }
 

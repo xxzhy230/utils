@@ -43,7 +43,7 @@ public class PostJsonBuilder extends OkHttpRequestBuilder<PostJsonBuilder> {
         }
         headers.put("v_version", Utils.getVersionName());
         headers.put("v_device", "Android");
-        headers.put("Authorization", SPUtils.getToken() == null ? "" : SPUtils.getToken());
+        headers.put(OkHttp.TOKEN, SPUtils.getToken() == null ? "" : SPUtils.getToken());
         return this;
     }
 

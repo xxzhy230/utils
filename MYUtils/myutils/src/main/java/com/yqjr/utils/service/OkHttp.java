@@ -24,7 +24,8 @@ import okhttp3.Response;
  */
 
 public class OkHttp extends OkHttpUtils {
-    public static final long DEFAULT_MILLISECONDS = 10_000L;
+    public static String TOKEN;
+
     private volatile static OkHttpUtils mInstance;
     private OkHttpClient mOkHttpClient;
     private Platform mPlatform;

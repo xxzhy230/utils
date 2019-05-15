@@ -7,6 +7,11 @@ import com.yqjr.utils.base.BaseActivity;
 public class TestAactivity extends BaseActivity {
 
     @Override
+    public void onClickEvent() {
+
+    }
+
+    @Override
     public View getView() {
         View view = View.inflate(this,R.layout.activity_test,null);
         return view;

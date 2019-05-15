@@ -98,6 +98,11 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
 
 
     @Override
+    public void onClickEvent() {
+
+    }
+
+    @Override
     public View getView() {
 //        StatusBarUtil.setStatusBarMode(this,true,R.color.white);
         StatusBarUtil.fullScreen(this);
