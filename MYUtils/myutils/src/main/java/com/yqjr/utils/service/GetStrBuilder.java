@@ -31,8 +31,7 @@ public class GetStrBuilder extends GetBuilder {
 
     public GetBuilder url(String url) {
         this.url = url;
-        GetBuilder builder = addHeader();
-        return builder;
+        return this;
     }
 
     protected String appendParams(String url, Map<String, String> params) {
@@ -49,7 +48,7 @@ public class GetStrBuilder extends GetBuilder {
         return builder.build().toString();
     }
 
-    private GetBuilder addHeader() {
+    public GetBuilder addHeaders() {
         if (this.headers == null) {
             headers = new LinkedHashMap<>();
 
@@ -59,7 +58,14 @@ public class GetStrBuilder extends GetBuilder {
         headers.put(OkHttp.TOKEN, SPUtils.getToken() == null?"":SPUtils.getToken());
         return this;
     }
-
+    public GetBuilder addHeaders(Map map) {
+        if (map != null) {
+            headers = map;
+        }else {
+            addHeaders();
+        }
+        return this;
+    }
     @Override
     public GetBuilder params(Map<String, String> params) {
         this.params = params;

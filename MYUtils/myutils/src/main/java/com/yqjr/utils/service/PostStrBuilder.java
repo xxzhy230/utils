@@ -36,8 +36,7 @@ public class PostStrBuilder extends PostFormBuilder {
 
     public PostFormBuilder url(String url) {
         this.url = url;
-        PostFormBuilder postJsonBuilder = addHeader();
-        return postJsonBuilder;
+        return this;
     }
 
     public PostFormBuilder addFile(String name, String filename, File file) {
@@ -66,7 +65,7 @@ public class PostStrBuilder extends PostFormBuilder {
         }
     }
 
-    private PostFormBuilder addHeader() {
+    public PostFormBuilder addHeaders() {
         if (this.headers == null) {
             headers = new LinkedHashMap<>();
         }
@@ -75,7 +74,14 @@ public class PostStrBuilder extends PostFormBuilder {
         headers.put(OkHttp.TOKEN, SPUtils.getToken());
         return this;
     }
-
+    public PostFormBuilder addHeaders(Map map) {
+        if (map != null) {
+            headers = map;
+        }else {
+            addHeaders();
+        }
+        return this;
+    }
     @Override
     public PostFormBuilder params(Map<String, String> params) {
         this.params = params;

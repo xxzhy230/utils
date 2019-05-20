@@ -36,7 +36,7 @@ public class PostJsonBuilder extends OkHttpRequestBuilder<PostJsonBuilder> {
         return this;
     }
 
-    public PostJsonBuilder addHeader() {
+    public PostJsonBuilder addHeaders() {
         if (this.headers == null) {
             headers = new LinkedHashMap<>();
         }
@@ -47,11 +47,11 @@ public class PostJsonBuilder extends OkHttpRequestBuilder<PostJsonBuilder> {
         return this;
     }
 
-    public PostJsonBuilder addHeader(Map map) {
+    public PostJsonBuilder addHeaders(Map map) {
         if (map != null) {
             headers = map;
         }else{
-            addHeader();
+            addHeaders();
         }
         return this;
     }
