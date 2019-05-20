@@ -64,11 +64,10 @@ public class Utils {
      * @param istag   是否开启日志
      * @param tagName 日志名称
      * @param connectTimeout   连接时间
-     * @param readTimeout     超时时间
-     * @param classes    401 跳转的界面
+     * @param readTimeoutString     超时时间
      */
-    public Utils initHttp(boolean istag, String tagName, long connectTimeout, long readTimeout, Class<FragmentActivity> classes, String token){
-        OkHttpInit.init(mContext).initOkhttpUtils(istag, tagName, connectTimeout, readTimeout, classes,token);
+    public Utils initHttp(boolean istag, String tagName, long connectTimeout, long readTimeoutString ,String token){
+        OkHttpInit.init(mContext).initOkhttpUtils(istag, tagName, connectTimeout, readTimeoutString,token);
         return utils;
     }
 

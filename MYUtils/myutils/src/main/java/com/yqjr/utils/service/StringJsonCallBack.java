@@ -23,16 +23,16 @@ public class StringJsonCallBack extends StringCallback {
         } else if (code == 401) {
             AppManager.getAppManager().finishAllActivity();
             // TODO: 2019/1/24   跳转到登录界面
-            Class classes = OkHttpInit.mActivity;
-            if (Activity.class.isInstance(classes)) {
-                return false;
-            }
-
-            Intent intent = new Intent();
-            System.out.println("类名   : " + classes.getName());
-            intent.setClassName(Utils.mContext, classes.getName());
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            Utils.mContext.startActivity(intent);
+            OkHttpInit.init(Utils.mContext).setNetState();
+//            Class classes = OkHttpInit.mActivity;
+//            if (Activity.class.isInstance(classes)) {
+//                return false;
+//            }
+//
+//            Intent intent = new Intent();
+//            intent.setClassName(Utils.mContext, classes.getName());
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            Utils.mContext.startActivity(intent);
             return false;
         } else {
             return true;

@@ -24,12 +24,17 @@ public class OkHttpInit {
     public static Class mActivity;
     private static volatile OkHttpInit mOkHttpInit;
     private Context mContext;
+    private OnNet401Linstener onNet401Linstener;
+
+    public void setOnNet401Linstener(OnNet401Linstener onNet401Linstener) {
+        this.onNet401Linstener = onNet401Linstener;
+    }
 
     OkHttpInit(Context mContext) {
         this.mContext = mContext;
     }
 
-     static OkHttpInit init(Context mContext) {
+    public static OkHttpInit init(Context mContext) {
         if (mOkHttpInit == null) {
             mOkHttpInit = new OkHttpInit(mContext);
         }
@@ -43,9 +48,8 @@ public class OkHttpInit {
      * @param tagName        日志名称
      * @param connectTimeout 连接时间 毫秒值
      * @param readTimeout    超时时间 毫秒值
-     * @param activity       401跳转的activity
      */
-    public void initOkhttpUtils( boolean isTag, String tagName, long connectTimeout, long readTimeout, Class<? extends Activity> activity,String token) {
+    public void initOkhttpUtils(boolean isTag, String tagName, long connectTimeout, long readTimeout, String token) {
         if (token == null) {
             token = "";
         }
@@ -64,8 +68,16 @@ public class OkHttpInit {
                 .build();
 
         OkHttpUtils.initClient(okHttpClient);
-        mActivity = activity;
+
     }
 
+    interface OnNet401Linstener {
+        void onNet401();
+    }
 
+    public void setNetState() {
+        if (onNet401Linstener != null){
+            onNet401Linstener.onNet401();
+        }
+    }
 }
