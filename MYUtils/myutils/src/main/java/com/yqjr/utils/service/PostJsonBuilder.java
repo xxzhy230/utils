@@ -27,8 +27,7 @@ public class PostJsonBuilder extends OkHttpRequestBuilder<PostJsonBuilder> {
 
     public PostJsonBuilder url(String url) {
         this.url = url;
-        PostJsonBuilder postJsonBuilder = addHeader();
-        return postJsonBuilder;
+        return this;
     }
 
     public PostJsonBuilder json(Map content) {
@@ -37,16 +36,22 @@ public class PostJsonBuilder extends OkHttpRequestBuilder<PostJsonBuilder> {
         return this;
     }
 
-    private PostJsonBuilder addHeader() {
+    public PostJsonBuilder addHeader() {
         if (this.headers == null) {
             headers = new LinkedHashMap<>();
         }
         headers.put("v_version", Utils.getVersionName());
         headers.put("v_device", "Android");
+        headers.put("sysTime", System.currentTimeMillis()+"");
         headers.put(OkHttp.TOKEN, SPUtils.getToken() == null ? "" : SPUtils.getToken());
         return this;
     }
-
+    public PostJsonBuilder addHeader(Map map) {
+        if (this.headers == null) {
+            headers = map;
+        }
+        return this;
+    }
     public PostJsonBuilder tag(Object tag) {
         this.tag = tag;
         return this;
