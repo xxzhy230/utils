@@ -14,7 +14,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         getHelper();
-        Utils.initUtils(getApplicationContext());
+        Utils.initUtils(getApplicationContext()).initHttp(false,"000",5000l,5000l,null
+                ,"");
 
         Utils.initUtils(this).initSQLite().initHelper(mHelper);
     }

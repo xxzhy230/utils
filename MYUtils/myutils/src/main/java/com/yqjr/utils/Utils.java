@@ -1,9 +1,9 @@
 package com.yqjr.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.support.v4.app.FragmentActivity;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
@@ -67,7 +67,7 @@ public class Utils {
      * @param readTimeout     超时时间
      * @param classes    401 跳转的界面
      */
-    public Utils initHttp(boolean istag, String tagName, long connectTimeout, long readTimeout, Class<Activity> classes,String token){
+    public Utils initHttp(boolean istag, String tagName, long connectTimeout, long readTimeout, Class<FragmentActivity> classes, String token){
         OkHttpInit.init(mContext).initOkhttpUtils(istag, tagName, connectTimeout, readTimeout, classes,token);
         return utils;
     }
