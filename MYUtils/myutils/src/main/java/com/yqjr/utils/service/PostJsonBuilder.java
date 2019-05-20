@@ -42,16 +42,20 @@ public class PostJsonBuilder extends OkHttpRequestBuilder<PostJsonBuilder> {
         }
         headers.put("v_version", Utils.getVersionName());
         headers.put("v_device", "Android");
-        headers.put("sysTime", System.currentTimeMillis()+"");
+        headers.put("sysTime", System.currentTimeMillis() + "");
         headers.put(OkHttp.TOKEN, SPUtils.getToken() == null ? "" : SPUtils.getToken());
         return this;
     }
+
     public PostJsonBuilder addHeader(Map map) {
-        if (this.headers == null) {
+        if (map != null) {
             headers = map;
+        }else{
+            addHeader();
         }
         return this;
     }
+
     public PostJsonBuilder tag(Object tag) {
         this.tag = tag;
         return this;
