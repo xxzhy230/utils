@@ -71,7 +71,7 @@ public class OkHttpInit {
 
     }
 
-    interface OnNet401Linstener {
+    public interface OnNet401Linstener {
         void onNet401();
     }
 
