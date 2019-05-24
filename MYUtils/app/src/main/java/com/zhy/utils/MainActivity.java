@@ -22,6 +22,7 @@ import com.yqjr.utils.base.BaseIViewString;
 import com.yqjr.utils.flyBanner.FlyBanner;
 import com.yqjr.utils.utils.StatusBarUtil;
 import com.yqjr.utils.utils.StringUtils;
+import com.yqjr.utils.wheel.WheelViewTimeUtils;
 import com.yqjr.utils.wheel.WheelViewUtils;
 
 import java.util.ArrayList;
@@ -122,37 +123,29 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
         mList.add("高新区");
         mList.add("天盛名都");
         mList.add("8栋三单元");
-//        WheelViewUtils.init(this).showWheelDateDialog(1, "生日", "2019", "12", "12", new WheelViewUtils.OnSubmitDateListener() {
+        WheelViewUtils.init(this).setItemVisible(5).setCancelTitle("取消").setCancelColor(R.color.color_555)
+                .setTextSizeCenter(20).setTextSizeOuter(14).setTextColorOuter(R.color.color_555).setTextColorCenter(R.color.colorAccent)
+                .setCancelTextSize(18).setConfirmTextSize(18).setConfirmColor(R.color.colorPrimary).setConfirmTitle("确定")
+                .setData(mList, 1).setLineColor(R.color.colorPrimaryDark).setOnSubmitListener(new WheelViewUtils.OnSubmitListener() {
+
+
+            @Override
+            public void onSubmit(int type, String content, int position) {
+
+            }
+        }).build().show();
+
+
+//        WheelViewTimeUtils.init(this).setItemVisible(5).setCancelTitle("取消").setCancelColor(R.color.color_555)
+//                .setTitleBg(R.drawable.white_bg)
+//                .setTextSizeCenter(20).setTextSizeOuter(14).setTextColorOuter(R.color.color_555).setTextColorCenter(R.color.colorAccent)
+//                .setCancelTextSize(18).setConfirmTextSize(18).setConfirmColor(R.color.colorPrimary).setConfirmTitle("确定")
+//                .setTimeData(1,"2009","12","12").setLineColor(R.color.colorPrimaryDark).setOnSubmitListener(new WheelViewTimeUtils.OnSubmitDateListener() {
 //            @Override
 //            public void onSubmit(int type, String content) {
 //
 //            }
-//        });
-//        WheelViewUtils.init(this).setItemVisible(5).setCancelTitle("取消").setCancelColor(R.color.color_555)
-//                .setTextSizeCenter(20).setTextSizeOuter(14).setTextColorOuter(0xff555555).setTextColorCenter(0xff0000ff)
-//                .setCancelTextSize(18).setConfirmTextSize(18).setConfirmColor(0xff0000ff).setConfirmTitle("确定")
-//                .setData(mList, 1).setLineColor(0xff000000).setOnSubmitOneListener(new WheelViewUtils.OnSubmitOneListener() {
-//
-//
-//            @Override
-//            public void onSubmit(int type, String content, int position) {
-//
-//            }
 //        }).build().show();
-
-
-        WheelViewUtils.init(this).setItemVisible(5).setCancelTitle("取消").setCancelColor(R.color.color_555)
-                .setTitleBg(R.drawable.white_bg)
-                .setTextSizeCenter(20).setTextSizeOuter(14).setTextColorOuter(0xff555555).setTextColorCenter(0xff0000ff)
-                .setCancelTextSize(18).setConfirmTextSize(18).setConfirmColor(0xff0000ff).setConfirmTitle("确定")
-                .setTimeData(1,"2009","12","12").setLineColor(0xff000000).setOnSubmitListener(new WheelViewUtils.OnSubmitDateListener() {
-
-
-            @Override
-            public void onSubmit(int type, String content) {
-
-            }
-        }).build().show();
     }
 
     @Override

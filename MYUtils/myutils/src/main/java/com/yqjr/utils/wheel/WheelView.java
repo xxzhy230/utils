@@ -78,14 +78,13 @@ public class WheelView extends View {
         return items.size();
     }
     List<String> items;
-
     // 显示几个条目
     int itemsVisible = 7;
     int textSizeCenter = 18;
     int textSizeOuter = 14;
-    int textColorOuter = 0xffbbbbbb;
-    int textColorCenter = 0xff4d4d4d;
-    int lineColor = 0xffe6e6e6;
+    int textColorOuter ;
+    int textColorCenter ;
+    int lineColor ;
 
     boolean isLoop = false;
     float lineSpaceingDimens ;
@@ -132,17 +131,18 @@ public class WheelView extends View {
     public WheelView(Context context, AttributeSet attributeset, int defStyleAttr) {
         super(context, attributeset, defStyleAttr);
         initWheelView(context,attributeset);
+         textColorOuter = context.getResources().getColor(R.color.black);
+         textColorCenter =context.getResources().getColor(R.color.blue);
+         lineColor = context.getResources().getColor(R.color.blue);
     }
 
     private void initWheelView(Context context, AttributeSet attributeset) {
         TypedArray attribute = context.obtainStyledAttributes(attributeset, R.styleable.WheelView);
-        lineColor = attribute.getColor(R.styleable.WheelView_lineColor, lineColor);
+        lineColor = attribute.getColor(R.styleable.WheelView_lineColor,lineColor);
         itemsVisible = getFixedItemsVisible(attribute.getInt(R.styleable.WheelView_itemVisibleNum, itemsVisible));
         isLoop = attribute.getBoolean(R.styleable.WheelView_isLoop, isLoop);
         textColorCenter = attribute.getColor(R.styleable.WheelView_textColorCenter, textColorCenter);
         textColorOuter = attribute.getColor(R.styleable.WheelView_textColorOuter, textColorOuter);
-//        textSizeCenter = attribute.getDimension(R.styleable.WheelView_textSizeCenter, 18);
-//        textSizeOuter = attribute.getDimension(R.styleable.WheelView_textSizeOuter, 13);
         lineSpaceingDimens = attribute.getDimension(R.styleable.WheelView_lineSpaceingDimens, 0);
         wheelGravity = attribute.getInt(R.styleable.WheelView_wheelGravity, wheelGravity);
 
@@ -262,11 +262,9 @@ public class WheelView extends View {
         }
         paintCenterText.getTextBounds("\u661F\u671F", 0, 2, tempRect);
 
-//        maxTextHeightCenter = tempRect.height();
         maxTextHeightCenter = StringUtils.dp2px(getContext(),25);
 
         paintOuterText.getTextBounds("\u661F\u671F", 0, 2, tempRect);
-//        maxTextHeightOuter = tempRect.height();
 
         maxTextHeightOuter = StringUtils.dp2px(getContext(),25);
 
@@ -290,10 +288,8 @@ public class WheelView extends View {
             } else {
                 mOffset = -mOffset;
             }
-//            mOffset = 0;
         }
         mFuture = mExecutor.scheduleWithFixedDelay(new SmoothScrollTimerTask(this, mOffset), 0, 10, TimeUnit.MILLISECONDS);
-        Log.i("wangpeiming", "smoothScroll: ");
     }
 
     protected final void scrollBy(float velocityY) {
@@ -324,9 +320,6 @@ public class WheelView extends View {
         oldIndex = initPosition;
 
         selectedItem = initPosition;
-//        if (this.onItemSelectedListener != image_null) {
-//            onItemSelectedListener.onItemSelected(initPosition);
-//        }
     }
 
     public final void setOnItemSelectedListener(OnItemSelectedListener OnItemSelectedListener) {
@@ -362,12 +355,7 @@ public class WheelView extends View {
     public final int getSelectedPosition(){
         return selectedItem;
     }
-//
-//    protected final void scrollBy(float velocityY) {
-//        Timer timer = new Timer();
-//        mTimer = timer;
-//        timer.schedule(new InertiaTimerTask(this, velocityY, timer), 0L, 20L);
-//    }
+
 
     protected final void onItemSelected() {
         if (onItemSelectedListener != null) {
@@ -385,7 +373,7 @@ public class WheelView extends View {
         canvas.clipRect(0, 0, measuredWidth, measuredHeight - 2 *  lineSpaceingDimens);
         canvas.save();
 
-//        String as[] = new String[itemsVisible+2];//实际显示出来的String数组,滚动过程中上下会多出一个
+        //String as[] = new String[itemsVisible+2];//实际显示出来的String数组,滚动过程中上下会多出一个
         change = (int) (totalScrollY / itemHeightOuter);
         //initPosition为初始选中的index，preCurrentIndex为当前选中的index
         preCurrentIndex = initPosition + change % items.size();
@@ -435,7 +423,6 @@ public class WheelView extends View {
             }
 
             canvas.save();
-//                Log.i("wangpeiming", "onDraw: translateY:"+translateY  +"   j3: "+j3);
 
             canvas.translate(0.0F, translateY);//移动画布的原点坐标
             if (translateY < firstLineY && translateYNext > firstLineY) {
@@ -546,9 +533,6 @@ public class WheelView extends View {
 
                 // 边界处理。
                 if (!isLoop) {
-
-//                    Log.i("wangpeiming", "onTouchEvent: bottom  "+bottom + "  totalScrollY  "+ totalScrollY);
-
                     if (totalScrollY < top) {
                         totalScrollY = (int) top;
                     } else if (totalScrollY > bottom) {
@@ -583,10 +567,6 @@ public class WheelView extends View {
                     }
 
                     mOffset = (int) ((pos - itemsVisible / 2) * itemHeightOuter - extraOffset);
-//                    if (totalScrollY == bottom && mOffset > 0) {
-//                        mOffset = 0;
-//                    }
-
                     if (!isLoop) {
                         if (totalScrollY + mOffset > bottom) {
                             mOffset = (int) (bottom-totalScrollY);

@@ -68,15 +68,10 @@
                 android:layout_height="wrap_content"
                 app:isLoop="false"
                 app:itemVisibleNum="5"
-                app:lineColor="#458BEB"
                 app:lineSpaceingDimens="10dp"
-                app:textColorCenter="#458BEB"
-                app:textColorOuter="#AAB9C0"
                 app:textSizeCenter="16dp"
                 app:textSizeOuter="16dp"
                 app:wheelGravity="center"/>
-
-
 
     </LinearLayout>
 
