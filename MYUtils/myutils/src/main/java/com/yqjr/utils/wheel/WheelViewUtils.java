@@ -173,9 +173,9 @@ public class WheelViewUtils {
         tv_title.setText(title);
         tv_cancel.setText(canceltitle);
         tv_ok.setText(confirmtitle);
-        tv_cancel.setTextSize(StringUtils.dp2px(mContext,cancelTextSize));
-        tv_title.setTextSize(StringUtils.dp2px(mContext,titleTextSize));
-        tv_ok.setTextSize(StringUtils.dp2px(mContext, confirmTextSize));
+        tv_cancel.setTextSize(cancelTextSize);
+        tv_title.setTextSize(titleTextSize);
+        tv_ok.setTextSize(confirmTextSize);
         tv_title.setTextColor(mContext.getResources().getColor(titleColor));
         tv_ok.setTextColor(mContext.getResources().getColor(confirmColor));
         tv_cancel.setTextColor(mContext.getResources().getColor(cancelColor));
