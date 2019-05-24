@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/white"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="#eee">
+        android:layout_height="49dp"
+        android:background="@drawable/white_bg">
 
         <TextView
             android:id="@+id/tv_cancel"
@@ -26,6 +25,7 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
@@ -34,7 +34,6 @@
             android:paddingLeft="23dp"
             android:paddingRight="23dp"
             android:text="证件到期日"
-            android:id="@+id/tv_title"
             android:textColor="#606B71"
             android:textSize="16sp" />
 
@@ -52,18 +51,26 @@
             android:textSize="16sp" />
     </RelativeLayout>
 
-    <LinearLayout
+    <View
+        android:id="@+id/v_line"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="1dp"
+        android:background="#80000000" />
+
+    <LinearLayout
+        android:id="@+id/ll_bg"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
         android:orientation="horizontal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
         <com.yqjr.utils.wheel.WheelView
-            android:layout_weight="1"
             android:id="@+id/wv1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="250dp"
+            android:layout_weight="1"
             app:isLoop="false"
             app:itemVisibleNum="5"
             app:lineColor="#458BEB"
@@ -72,13 +79,14 @@
             app:textColorOuter="#AAB9C0"
             app:textSizeCenter="16dp"
             app:textSizeOuter="16dp"
-            app:wheelGravity="center"/>
+            app:wheelGravity="center" />
+
         <com.yqjr.utils.wheel.WheelView
             android:id="@+id/wv2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:isLoop="false"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            app:isLoop="false"
             app:itemVisibleNum="5"
             app:lineColor="#458BEB"
             app:lineSpaceingDimens="10dp"
@@ -86,12 +94,13 @@
             app:textColorOuter="#AAB9C0"
             app:textSizeCenter="16dp"
             app:textSizeOuter="16dp"
-            app:wheelGravity="center"/>
+            app:wheelGravity="center" />
+
         <com.yqjr.utils.wheel.WheelView
             android:id="@+id/wv3"
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             app:isLoop="false"
             app:itemVisibleNum="5"
             app:lineColor="#458BEB"
@@ -100,7 +109,7 @@
             app:textColorOuter="#AAB9C0"
             app:textSizeCenter="16dp"
             app:textSizeOuter="16dp"
-            app:wheelGravity="center"/>
+            app:wheelGravity="center" />
     </LinearLayout>
 
 

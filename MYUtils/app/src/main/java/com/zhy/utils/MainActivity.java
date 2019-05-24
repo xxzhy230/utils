@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
         String zkr2019 = StringUtils.getSign(map, "zkr2019");
         map.put("sign", zkr2019);
         String urls = "https://test.17ebank.com:9137/api/login/authenticateforsign";
-        iPresenter.postString( urls, map, 0);
+//        iPresenter.postString( urls, map, 0);
 //        List<Long> mList = new ArrayList<>();
 //        for (int i = 0; i < 30; i++) {
 //            mList.add(1000000l + i * 100000 );
@@ -105,7 +105,7 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
     @Override
     public View getView() {
 //        StatusBarUtil.setStatusBarMode(this,true,R.color.white);
-        StatusBarUtil.fullScreen(this);
+//        StatusBarUtil.fullScreen(this);
         view = View.inflate(this, R.layout.activity_main, null);
         return view;
     }
@@ -117,27 +117,42 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
 
     public void button(View view) {
         List<String> mList = new ArrayList<>();
-        mList.add("1");
-        mList.add("1");
-        mList.add("1");
-        mList.add("1");
-        WheelViewUtils.init(this).showWheelDateDialog(1, "生日", "year", "months", "days", new WheelViewUtils.OnSubmitDateListener() {
+        mList.add("吉林省");
+        mList.add("长春市");
+        mList.add("高新区");
+        mList.add("天盛名都");
+        mList.add("8栋三单元");
+//        WheelViewUtils.init(this).showWheelDateDialog(1, "生日", "2019", "12", "12", new WheelViewUtils.OnSubmitDateListener() {
+//            @Override
+//            public void onSubmit(int type, String content) {
+//
+//            }
+//        });
+//        WheelViewUtils.init(this).setItemVisible(5).setCancelTitle("取消").setCancelColor(R.color.color_555)
+//                .setTextSizeCenter(20).setTextSizeOuter(14).setTextColorOuter(0xff555555).setTextColorCenter(0xff0000ff)
+//                .setCancelTextSize(18).setConfirmTextSize(18).setConfirmColor(0xff0000ff).setConfirmTitle("确定")
+//                .setData(mList, 1).setLineColor(0xff000000).setOnSubmitOneListener(new WheelViewUtils.OnSubmitOneListener() {
+//
+//
+//            @Override
+//            public void onSubmit(int type, String content, int position) {
+//
+//            }
+//        }).build().show();
+
+
+        WheelViewUtils.init(this).setItemVisible(5).setCancelTitle("取消").setCancelColor(R.color.color_555)
+                .setTitleBg(R.drawable.white_bg)
+                .setTextSizeCenter(20).setTextSizeOuter(14).setTextColorOuter(0xff555555).setTextColorCenter(0xff0000ff)
+                .setCancelTextSize(18).setConfirmTextSize(18).setConfirmColor(0xff0000ff).setConfirmTitle("确定")
+                .setTimeData(1,"2009","12","12").setLineColor(0xff000000).setOnSubmitListener(new WheelViewUtils.OnSubmitDateListener() {
+
+
             @Override
             public void onSubmit(int type, String content) {
 
             }
-        });
-
-        WheelViewUtils.init(this)
-                .setTitleBar("", R.color.black, R.color.white, R.color.color_555, R.color.confirm)
-                .setTextColorAndTextSize(5, 14, 15, 0xff00ff00, 0xffff0000, 0xff0000ff)
-                .showWheelOneDialog(mList, 1, new WheelViewUtils.OnSubmitOneListener() {
-
-                    @Override
-                    public void onSubmit(int type, String content, int position) {
-
-                    }
-                });
+        }).build().show();
     }
 
     @Override
@@ -209,17 +224,18 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
         /**这段代码不需要深究，是locationManager.getLastKnownLocation(provider)自动生成的，不加会出错**/
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PERMISSION_GRANTED) {
             // TODO: Consider calling
-            System.out.println("==========  : " );
+            System.out.println("==========  : ");
             return;
         }
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER); // 通过GPS获取位置
         if (location == null) {
             System.out.println(getLngAndLatWithNetwork());
-        }else{
+        } else {
             updateLocation(location);
         }
 
     }
+
     //从网络获取经纬度
     public String getLngAndLatWithNetwork() {
         double latitude = 0.0;
@@ -233,6 +249,7 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
         }
         return longitude + "," + latitude;
     }
+
     LocationListener locationListener = new LocationListener() {
 
         // Provider的状态在可用、暂时不可用和无服务三个状态直接切换时触发此函数
@@ -261,10 +278,11 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
 
     /**
      * 获取到当前位置的经纬度
+     *
      * @param location
      */
     private void updateLocation(Location location) {
-        System.out.println("====-------adadsdaddsd--------======  : " );
+        System.out.println("====-------adadsdaddsd--------======  : ");
         if (location != null) {
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
@@ -273,6 +291,7 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
             System.out.println("无法获取到位置信息");
         }
     }
+
     /**
      * Android6.0申请权限的回调方法
      */
@@ -294,6 +313,7 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
                 break;
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

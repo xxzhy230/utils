@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:onClick="button"
             android:text="测试"
-            android:visibility="gone" />
+            android:layout_marginTop="300dp"
+            android:visibility="visible" />
 
         <com.yqjr.utils.flyBanner.FlyBanner
             android:id="@+id/fb_banner"
