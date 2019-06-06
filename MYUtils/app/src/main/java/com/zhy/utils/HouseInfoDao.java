@@ -1,16 +1,11 @@
 package com.zhy.utils;
 
 
-import android.content.ContentValues;
 import android.content.Context;
 
-import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.BaseDaoImpl;
 import com.j256.ormlite.misc.TransactionManager;
 import com.j256.ormlite.support.ConnectionSource;
-
-
-import net.sqlcipher.database.SQLiteDatabase;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -80,76 +75,4 @@ public class HouseInfoDao extends BaseDaoImpl<HouseInfo, String> {
 //        long zidingyitable = db.insert("houseTable", null, contentValues);
         return orUpdate.getNumLinesChanged();
     }
-//
-//
-//    /**
-//     * 删除设备
-//     *
-//     * @param deviceInfo 需要删除的设备信息
-//     * @throws SQLException
-//     */
-//    public int deleteDevice(BLDeviceInfo deviceInfo) throws SQLException {
-//        QueryBuilder<HouseInfo, String> queryBuilder = queryBuilder();
-//        Where<HouseInfo, String> where = queryBuilder.where();
-//        where.eq("pdid", deviceInfo.getDid());
-//        List<HouseInfo> devList = query(queryBuilder.prepare());
-//
-//        for (HouseInfo subDevInfo : devList) {
-//            deleteById(subDevInfo.getDid());
-//        }
-//
-//        return deleteById(deviceInfo.getDid());
-//    }
-//
-//    /**
-//     * 删除设备
-//     *
-//     * @throws SQLException
-//     */
-//    public int deleteDevice(Context mContext, int id) throws SQLException {
-//
-//        DatabaseHelper databaseHelper = new DatabaseHelper(mContext);
-//        SQLiteDatabase db = databaseHelper.getWritableDatabase("test");
-//        int zidingyitable = db.delete("zidingyitable", "_id=?", new String[]{id + ""});
-//        return zidingyitable;
-//    }
-//
-//
-//
-//    public int updataHouseName(String houseName, int where) {
-//        UpdateBuilder<HouseInfo, String> houseInfoStringUpdateBuilder = updateBuilder();
-//        try {
-//            houseInfoStringUpdateBuilder.updateColumnValue("houseName", houseName);
-//            houseInfoStringUpdateBuilder.where().eq("id", where);
-//            int update = houseInfoStringUpdateBuilder.update();
-//            return update;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return -1;
-//        }
-//    }
-//    public int updataHousestate(String state, String where) {
-//        UpdateBuilder<HouseInfo, String> houseInfoStringUpdateBuilder = updateBuilder();
-//        try {
-//            houseInfoStringUpdateBuilder.updateColumnValue("state", state);
-//            houseInfoStringUpdateBuilder.where().eq("id", where);
-//            int update = houseInfoStringUpdateBuilder.update();
-//            return update;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return -1;
-//        }
-//    }
-//    public int updataHousestate(String where) {
-//        UpdateBuilder<HouseInfo, String> houseInfoStringUpdateBuilder = updateBuilder();
-//        try {
-//            houseInfoStringUpdateBuilder.updateColumnValue("state", 0);
-//            houseInfoStringUpdateBuilder.where().eq("did", where);
-//            int update = houseInfoStringUpdateBuilder.update();
-//            return update;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return -1;
-//        }
-//    }
 }

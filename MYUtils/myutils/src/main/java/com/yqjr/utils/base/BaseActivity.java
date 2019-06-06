@@ -24,8 +24,8 @@ public abstract class BaseActivity extends FragmentActivity {
             layoutParams.height = Utils.stateHeight;
             vIncludeBar.setLayoutParams(layoutParams);
         }
-        initView();
         onClickEvent();
+        initView();
     }
 
     public abstract void onClickEvent();

@@ -105,8 +105,6 @@ public class MainActivity extends BaseActivity implements BaseIViewString {
 
     @Override
     public View getView() {
-//        StatusBarUtil.setStatusBarMode(this,true,R.color.white);
-//        StatusBarUtil.fullScreen(this);
         view = View.inflate(this, R.layout.activity_main, null);
         return view;
     }
