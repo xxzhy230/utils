@@ -20,11 +20,11 @@ public class WheelViewUtils {
     private int itemsVisible = 7;
     private int textSizeCenter = 18;
     private int textSizeOuter = 13;
-    private int textColorOuter= R.color.gray;
-    private int textColorCenter= R.color.blue;
-    private int titleLineColor= R.color.line_bg;
-    private int cancelColor =  R.color.gray;
-    private int confirmColor= R.color.blue;
+    private int textColorOuter = R.color.gray;
+    private int textColorCenter = R.color.blue;
+    private int titleLineColor = R.color.line_bg;
+    private int cancelColor = R.color.gray;
+    private int confirmColor = R.color.blue;
     private int titleColor = R.color.black;
     private int backgroundColor = R.color.white;
     private int lineColor = R.color.white;
@@ -39,7 +39,7 @@ public class WheelViewUtils {
     private static BottomDialog bottomDialog;
     private static OnSubmitListener onSubmitListener;
     private static WheelViewUtils wheelViewUtils;
-    private Context mContext;
+    private static Context mContext;
     private View outerView1;
 
     private WheelViewUtils(Context mContext) {
@@ -51,9 +51,12 @@ public class WheelViewUtils {
         return this;
     }
 
-    public static WheelViewUtils init(Context mContext) {
+    public static WheelViewUtils init(Context mContexts) {
+        if (!mContexts.equals(mContext)) {
+            wheelViewUtils = null;
+        }
         if (wheelViewUtils == null) {
-            wheelViewUtils = new WheelViewUtils(mContext);
+            wheelViewUtils = new WheelViewUtils(mContexts);
         }
         return wheelViewUtils;
     }
@@ -229,6 +232,5 @@ public class WheelViewUtils {
          */
         void onSubmit(int type, String content, int position);
     }
-
 
 }
