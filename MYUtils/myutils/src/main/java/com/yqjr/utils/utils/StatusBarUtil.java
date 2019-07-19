@@ -206,6 +206,7 @@ public class StatusBarUtil {
             }
         }
     }
+
     /**
      * @param activity
      * @param useThemestatusBarColor   是否要状态栏的颜色，不设置则为透明色
@@ -229,12 +230,7 @@ public class StatusBarUtil {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !withoutUseStatusBarColor) {
             activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
-        if (withoutUseStatusBarColor){
-           // @param useDart 是否使用深色调
-            setStatusTextColor(true,activity);
-        }else{
-            setStatusTextColor(false,activity);
-        }
+        setStatusTextColor(!withoutUseStatusBarColor,activity);
     }
     /**
      * 改变魅族的状态栏字体为黑色，要求FlyMe4以上
