@@ -2,7 +2,12 @@ package com.yqjr.utils.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.WindowManager;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -80,6 +85,17 @@ public class StringUtils {
     }
 
     /**
+     * double 保留一位小数
+     *
+     * @param dou
+     * @return
+     */
+    public static String double1String(double dou) {
+        DecimalFormat decimalFormat = new DecimalFormat("#0.0");
+        return decimalFormat.format(dou);
+    }
+
+    /**
      * 千分符
      *
      * @param text
@@ -112,6 +128,7 @@ public class StringUtils {
 
     /**
      * 手机号码中间隐藏
+     *
      * @param phone
      * @return
      */
@@ -127,40 +144,50 @@ public class StringUtils {
         }
         return true;
     }
+
     /**
      * 获取年
+     *
      * @return
      */
-    public static int getYear(){
+    public static int getYear() {
         Calendar cd = Calendar.getInstance();
-        return  cd.get(Calendar.YEAR);
+        return cd.get(Calendar.YEAR);
     }
+
     /**
      * 获取月
+     *
      * @return
      */
-    public static int getMonth(){
+    public static int getMonth() {
         Calendar cd = Calendar.getInstance();
-        return  cd.get(Calendar.MONTH)+1;
+        return cd.get(Calendar.MONTH) + 1;
     }
+
     /**
      * 获取日
+     *
      * @return
      */
-    public static int getDay(){
+    public static int getDay() {
         Calendar cd = Calendar.getInstance();
-        return  cd.get(Calendar.DATE);
+        return cd.get(Calendar.DATE);
     }
+
     /**
      * 获取时
+     *
      * @return
      */
-    public static int getHour(){
+    public static int getHour() {
         Calendar cd = Calendar.getInstance();
-        return  cd.get(Calendar.HOUR);
+        return cd.get(Calendar.HOUR);
     }
+
     /**
      * 获取分
+     *
      * @return
      */
     public static int getMinute() {
@@ -193,9 +220,8 @@ public class StringUtils {
     }
 
 
-
-
     private static String CHARSET = "UTF-8";
+
     /**
      * 得到时间戳
      *
@@ -208,6 +234,7 @@ public class StringUtils {
 
     /**
      * 字符串加签并转md5
+     *
      * @param map
      * @param key
      * @return
@@ -231,4 +258,68 @@ public class StringUtils {
         result = md5(result).toUpperCase();
         return result;
     }
+
+    /**
+     * 元转万元
+     */
+    public static double moneyChangeW(String money) {
+        if (TextUtils.isEmpty(money)) {
+            return 0;
+        }
+        return Double.parseDouble(money) / 10000;
+    }
+
+
+    /**
+     *      * 获取底部虚拟键盘的高度
+     *      *
+     *      * @param context
+     *      * @return
+     *      
+     */
+    public static int getScreenHeight(Context context) {
+        WindowManager wm = (WindowManager) (context.getSystemService(Context.WINDOW_SERVICE));
+        DisplayMetrics out = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(out);
+        return out.heightPixels;
+    }
+
+    /**
+     * 获取屏幕高度
+     *
+     * @return
+     */
+    public static int getScreenDPI(Context context) {
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        DisplayMetrics out = new DisplayMetrics();
+        try {
+            Class<?> aClass = Class.forName("android.view.Display");
+            Method method = aClass.getMethod("getRealMetrics", DisplayMetrics.class);
+            method.invoke(display, out);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+        return out.heightPixels;
+    }
+
+    /**
+     *      * 获取虚拟键盘的高度
+     *      *
+     *      * @return
+     *      
+     */
+    public static int getBottomStatusHeight(Context context) {
+        int totlaHeight = getScreenDPI(context);
+        int contentHeight = getScreenHeight(context);
+        return totlaHeight - contentHeight;
+    }
+
 }

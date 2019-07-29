@@ -26,7 +26,9 @@ public abstract class BaseActivity extends FragmentActivity {
         }
         onClickEvent();
         initView();
+        changeNet();
     }
+
 
     public abstract void onClickEvent();
 
@@ -42,7 +44,8 @@ public abstract class BaseActivity extends FragmentActivity {
     //初始化view
     protected abstract void initView();
 
-
+    //实现网络状态变化
+    protected abstract void changeNet();
     /**
      * 设置layout前配置
      */
