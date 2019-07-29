@@ -1,4 +1,5 @@
 package com.yqjr.utils.base;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
@@ -6,7 +7,6 @@ import android.content.Context;
 import java.util.Stack;
 
 /**
- *
  * Created by liuhuaqian on 2017/9/6.
  * activity管理
  */
@@ -18,13 +18,14 @@ public class AppManager {
     private AppManager() {
 
     }
+
     /**
      * 单一实例
      */
     public static AppManager getAppManager() {
         if (instance == null) {
-            synchronized (AppManager.class){
-                if(instance==null){
+            synchronized (AppManager.class) {
+                if (instance == null) {
                     instance = new AppManager();
                     instance.activityStack = new Stack();
                 }
@@ -114,7 +115,7 @@ public class AppManager {
 
     }
 
-    public boolean isCheckActivity(Class<?> cls){
+    public boolean isCheckActivity(Class<?> cls) {
         for (Activity activity : activityStack) {
             if (activity.getClass().equals(cls)) {
                 return true;
@@ -152,11 +153,12 @@ public class AppManager {
 
     /**
      * 是否已经打开指定的activity
+     *
      * @param cls
      * @return
      */
     public boolean isOpenActivity(Class<?> cls) {
-        if (activityStack!=null){
+        if (activityStack != null) {
             for (int i = 0, size = activityStack.size(); i < size; i++) {
                 if (cls == activityStack.peek().getClass()) {
                     return true;
@@ -186,5 +188,12 @@ public class AppManager {
                 System.exit(0);
             }
         }
+    }
+
+    /**
+     * 获取栈顶activity
+     */
+    public Activity getToActivity() {
+        return activityStack.peek();
     }
 }
