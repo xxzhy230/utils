@@ -206,6 +206,7 @@ public class WheelView extends View {
         paintCenterText.setColor(textColorCenter);
         paintCenterText.setAntiAlias(true);
         paintCenterText.setTypeface(Typeface.MONOSPACE);
+
         paintCenterText.setTextSize(StringUtils.dp2px(getContext(),textSizeCenter));
 
         paintIndicatorLine = new Paint();

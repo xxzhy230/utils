@@ -26,9 +26,9 @@ public class WheelViewUtils {
     private int cancelColor = R.color.gray;
     private int confirmColor = R.color.blue;
     private int titleColor = R.color.black;
-    private int backgroundColor = R.color.white;
+    private int backgroundColor = 0;
     private int lineColor = R.color.white;
-    private int titleBg = R.color.white;
+    private int titleBg = 0;
     private boolean titleLineVisible = true;
     private String title = "";
     private String canceltitle = "取消";
@@ -165,7 +165,10 @@ public class WheelViewUtils {
         }
         LinearLayout llBg = outerView1.findViewById(R.id.ll_bg);
         vLine.setBackgroundResource(titleLineColor);
-        llBg.setBackgroundResource(backgroundColor);
+        if (backgroundColor!= 0){
+
+            llBg.setBackgroundResource(backgroundColor);
+        }
         final WheelView wv1 = (WheelView) outerView1.findViewById(R.id.wv1);
 
         wv1.setTextColorAndTextSize(itemsVisible, textSizeCenter, textSizeOuter, mContext.getResources().getColor(textColorOuter), mContext.getResources().getColor(textColorCenter), mContext.getResources().getColor(lineColor));

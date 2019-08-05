@@ -22,5 +22,10 @@ public class TestAactivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void changeNet() {
+
+    }
+
 
 }
