@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.xxzhy.okhttputils.OkHttpUtils;
+import com.yqjr.utils.base.BaseActivity;
 import com.yqjr.utils.base.BaseIView;
 import com.yqjr.utils.base.BaseIViewFile;
 import com.yqjr.utils.base.BaseIViewString;
@@ -85,7 +86,6 @@ public class IpresenterCompl extends BaseIpresenterCompl {
             @Override
             public void onResponse(String response, int id) {
                 super.onResponse(response, id);
-
                 baseIViewString.result(true, response, position);
             }
 

@@ -14,7 +14,6 @@
         android:layout_marginTop="50dp"
         android:visibility="visible" />
     <com.classic.common.MultipleStatusView
-
         android:id="@+id/multiple_status_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -56,6 +56,7 @@ dependencies {
     //权限
     api 'com.github.tbruyelle:rxpermissions:0.10.2'
     api 'com.android.support:support-v4:28.0.0'
+    api 'pl.droidsonroids.gif:android-gif-drawable:1.2.8'
 }
 repositories {
     mavenCentral()

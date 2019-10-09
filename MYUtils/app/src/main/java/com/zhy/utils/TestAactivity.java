@@ -20,6 +20,7 @@ public class TestAactivity extends BaseActivity {
     @Override
     protected void initView() {
 
+        showProgress(false);
     }
 
     @Override
