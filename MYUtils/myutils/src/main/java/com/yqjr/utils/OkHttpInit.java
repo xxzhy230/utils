@@ -1,8 +1,6 @@
 package com.yqjr.utils;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 
 import com.xxzhy.okhttputils.OkHttpUtils;
 import com.xxzhy.okhttputils.cookie.CookieJarImpl;
@@ -22,6 +20,7 @@ public class OkHttpInit {
     private static final long CONNECTTIMEOUT = 10000;
     private static final long READTIMEOUT = 10000;
     public static Class mActivity;
+    public static OkHttpClient okHttpClient;
     private static volatile OkHttpInit mOkHttpInit;
     private Context mContext;
     private OnNet401Linstener onNet401Linstener;
@@ -56,7 +55,7 @@ public class OkHttpInit {
         OkHttp.TOKEN = token;
         HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);
         CookieJarImpl cookieJar = new CookieJarImpl(new PersistentCookieStore(mContext));
-        OkHttpClient okHttpClient;
+
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if (isTag) {
             builder.addInterceptor(new LoggerInterceptor(tagName));
@@ -76,7 +75,7 @@ public class OkHttpInit {
     }
 
     public void setNetState() {
-        if (onNet401Linstener != null){
+        if (onNet401Linstener != null) {
             onNet401Linstener.onNet401();
         }
     }

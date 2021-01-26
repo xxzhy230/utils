@@ -6,8 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 
 
+import com.google.gson.Gson;
+import com.yqjr.utils.service.OkHttp;
+import com.yqjr.utils.service.StringJsonCallBack;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import okhttp3.Call;
 
 
 public class MainActivity extends Activity {
@@ -17,11 +25,32 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        button(null);
+
     }
 
-
     public void button(View view) {
-        startActivity(new Intent(this, TestAactivity.class));
+        Map<String, String> map = new HashMap<>();
+        String content = new Gson().toJson(map);
+        OkHttp.postJson().url("https://af.test.17ebank.com:9101/three-party-app/api/appthreeedition/selectEdition")
+                .json(map)
+                .build()
+                .execute(new StringJsonCallBack() {
+                    @Override
+                    public void onResponse(String s, int i) {
+                        super.onResponse(s, i);
+                        System.out.println("-------" + s);
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e, int i) {
+                        super.onError(call, e, i);
+                        System.out.println("-------" + e.toString());
+                    }
+                });
+
+
+//        startActivity(new Intent(this, TestAactivity.class));
 //        List<String> mList = new ArrayList<>();
 //        mList.add("吉林省");
 //        mList.add("长春市");
